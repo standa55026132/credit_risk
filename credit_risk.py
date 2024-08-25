@@ -8,12 +8,30 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 #import pickle
+import os
 
 # Load the trained model
 joblib_file = "xgboost_model.pkl" 
-scaler_file = "scaler.pkl" 
-model = joblib.load(joblib_file)
-scaler = joblib.load(scaler_file)
+scaler_file = "scaler.pkl"
+# Check if the file exists
+if os.path.exists(joblib_file):
+    try:
+        model = joblib.load(joblib_file)
+        print("Model loaded successfully.")
+    except Exception as e:
+        print(f"Error loading model: {e}")
+else:
+    print(f"File {joblib_file} does not exist.")
+
+if os.path.exists(joblib_file):
+    try:
+        scaler = joblib.load(scaler_file)
+    except Exception as e:
+        print(f"Error loading model: {e}")
+else:
+    print(f"File {joblib_file} does not exist.")
+# model = joblib.load(joblib_file)
+# scaler = joblib.load(scaler_file)
 
 # Sidebar button styles
 st.markdown("""
