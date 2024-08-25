@@ -23,13 +23,13 @@ if os.path.exists(joblib_file):
 else:
     print(f"File {joblib_file} does not exist.")
 
-if os.path.exists(joblib_file):
+if os.path.exists(scaler_file):
     try:
         scaler = joblib.load(scaler_file)
     except Exception as e:
         print(f"Error loading model: {e}")
 else:
-    print(f"File {joblib_file} does not exist.")
+    print(f"File {scaler_file} does not exist.")
 # model = joblib.load(joblib_file)
 # scaler = joblib.load(scaler_file)
 
